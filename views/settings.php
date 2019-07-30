@@ -22,7 +22,19 @@
           </select>
         </td>
       </tr>
-
+      
+      <tr valign="top">
+        <th scope="row">Log-Level</th>
+        <td>
+          <select name="airbrake_wordpress_setting_log_level">
+            <option value="<?php echo E_ALL; ?>"<?php echo (int)get_option('airbrake_wordpress_setting_log_level') == E_ALL ? ' selected="selected"' : ''; ?>>E_ALL</option>
+            <option value="<?php echo E_NOTICE; ?>"<?php echo (int)get_option('airbrake_wordpress_setting_log_level') == E_NOTICE ? ' selected="selected"' : ''; ?>>E_NOTICE</option>
+            <option value="<?php echo E_WARNING; ?>"<?php echo (int)get_option('airbrake_wordpress_setting_log_level') == E_WARNING ? ' selected="selected"' : ''; ?>>E_WARNING</option>
+            <option value="<?php echo E_ERROR; ?>"<?php echo (int)get_option('airbrake_wordpress_setting_log_level') == E_ERROR ? ' selected="selected"' : ''; ?>>E_ERROR</option>
+          </select> (and higher)
+        </td>
+      </tr>
+      
       <tr valign="top">
         <th scope="row">Project ID</th>
         <td><input type="text" size="45" name="airbrake_wordpress_setting_project_id" value="<?php echo get_option('airbrake_wordpress_setting_project_id'); ?>" /></td>

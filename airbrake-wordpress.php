@@ -9,7 +9,7 @@ Author URI: https://github.com/airbrake/airbrake-wordpress
 
 Description: Airbrake lets you discover errors and bugs in your Wordpress install.
 
-Version: 0.2
+Version: 0.2.2
 License: GPL
 */
 
@@ -28,6 +28,7 @@ register_deactivation_hook(__FILE__, 'airbrake_wordpress_uninstall');
 function airbrake_wordpress_install()
 {
     add_option('airbrake_wordpress_setting_disabled', '1', '', 'yes');
+    add_option('airbrake_wordpress_setting_log_level', E_ALL, '', 'yes');
     add_option('airbrake_wordpress_setting_project_id', 'FIXME', '', 'yes');
     add_option('airbrake_wordpress_setting_project_key', 'FIXME', '', 'yes');
 }
@@ -35,6 +36,7 @@ function airbrake_wordpress_install()
 function airbrake_wordpress_uninstall()
 {
     delete_option('airbrake_wordpress_setting_disabled');
+    delete_option('airbrake_wordpress_setting_log_level');
     delete_option('airbrake_wordpress_setting_project_id');
     delete_option('airbrake_wordpress_setting_project_key');
 }
